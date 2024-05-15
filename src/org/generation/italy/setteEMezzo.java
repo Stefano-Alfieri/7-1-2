@@ -11,7 +11,7 @@ public class setteEMezzo {
 		Scanner sc = new Scanner(System.in);
 		Random r = new Random();
 		// dichiarazione dati e arrayList
-		String risposta = "", rispostaRestart = "", rispostaRicarica="";
+		String risposta = "", rispostaRestart = "", rispostaRicarica = "";
 		float bilancio, punteggio = 0, punteggioBanco = 0, puntata;
 		ArrayList<Integer> carte = new ArrayList<Integer>();
 		HashSet<Integer> carteEstratte = new HashSet<Integer>();
@@ -32,12 +32,12 @@ public class setteEMezzo {
 				System.out.println("Impossibile sedersi al tavolo con un bilancio negativo");
 		} while (bilancio <= 0);
 		do {
-			if(bilancio==0) {
+			if (bilancio == 0) {
 				System.out.println("non hai soldi, vuoi ricaricare il bilancio attuale?");
-				rispostaRicarica=sc.nextLine();
-				if(rispostaRicarica.equalsIgnoreCase("si")||rispostaRicarica.equalsIgnoreCase("sì")) {
+				rispostaRicarica = sc.nextLine();
+				if (rispostaRicarica.equalsIgnoreCase("si") || rispostaRicarica.equalsIgnoreCase("sì")) {
 					System.out.println("inserisci quanto vuoi ricaricare:");
-					bilancio=sc.nextFloat();
+					bilancio = sc.nextFloat();
 					sc.nextLine();
 				}
 			}
@@ -104,7 +104,7 @@ public class setteEMezzo {
 				}
 			} while (risposta.equalsIgnoreCase("si") || risposta.equalsIgnoreCase("sì"));
 
-			// banco 
+			// banco
 			do {
 				do {
 					// estrazione carta e attribuzione seme banco
@@ -166,9 +166,10 @@ public class setteEMezzo {
 			punteggio = 0;
 			punteggioBanco = 0;
 			System.out.println("il tuo bilancio attuale " + bilancio);
-			//restart
+			// restart
 			System.out.println("vuoi continuare a giocare?");
 			rispostaRestart = sc.nextLine();
+			carteEstratte.clear();
 		} while (rispostaRestart.equalsIgnoreCase("si") || rispostaRestart.equalsIgnoreCase("sì"));
 		System.out.println("Grazie, arrivederci");
 	}// fine main
