@@ -11,7 +11,7 @@ public class setteEMezzo {
 		Scanner sc = new Scanner(System.in);
 		Random r = new Random();
 		// dichiarazione dati e arrayList
-		String risposta = "", rispostaRestart = "";
+		String risposta = "", rispostaRestart = "", rispostaRicarica="";
 		float bilancio, punteggio = 0, punteggioBanco = 0, puntata;
 		ArrayList<Integer> carte = new ArrayList<Integer>();
 		HashSet<Integer> carteEstratte = new HashSet<Integer>();
@@ -28,10 +28,19 @@ public class setteEMezzo {
 		do {
 			System.out.println("Inserisci il tuo bilancio:");
 			bilancio = sc.nextFloat();
-			if (bilancio < 0)
+			if (bilancio <= 0)
 				System.out.println("Impossibile sedersi al tavolo con un bilancio negativo");
-		} while (bilancio < 0);
+		} while (bilancio <= 0);
 		do {
+			if(bilancio==0) {
+				System.out.println("non hai soldi, vuoi ricaricare il bilancio attuale?");
+				rispostaRicarica=sc.nextLine();
+				if(rispostaRicarica.equalsIgnoreCase("si")||rispostaRicarica.equalsIgnoreCase("sì")) {
+					System.out.println("inserisci quanto vuoi ricaricare:");
+					bilancio=sc.nextFloat();
+					sc.nextLine();
+				}
+			}
 			do {
 				// richiesta puntata
 				System.out.println("Inserisci la tua puntata:");
